@@ -1,0 +1,36 @@
+{
+  "name": "seneca-quartz-scheduler",
+  "version": "0.0.0",
+  "description": "Senecea quartz-scheduler plugin",
+  "main": "lib/scheduler.js",
+  "scripts": {
+    "test": "node_modules/.bin/mocha -u qunit"
+  },
+  "repository": {
+    "type": "git",
+    "url": "github.com/darsee/seneca-quartz-scheduler"
+  },
+  "keywords": [
+    "seneca",
+    "scheduler",
+    "scheduling",
+    "quartz",
+    "cron"
+  ],
+  "author": "Seamus D'Arcy",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/darsee/seneca-quartz-scheduler/issues"
+  },
+  "homepage": "https://github.com/darsee/seneca-quartz-scheduler",
+  "devDependencies": {
+    "mocha": "^1.18.2",
+    "moment": "^2.5.1"
+  },
+  "dependencies": {
+    "quartz-scheduler": "git://github.com/nherment/node-quartz-scheduler",
+    "seneca": "^0.5.17",
+    "uuid": "^1.4.1",
+    "chai": "^1.9.1"
+  }
+}
