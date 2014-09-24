@@ -42,7 +42,8 @@ seneca.ready(function(err){
     var payload = args.data;
 
     if(payload.action === 'send-email') {
-      seneca.act({role:'mailer', cmd:'send', subject: payload.subject, body: payload.body}, function(err,result) {
+      seneca.act({role:'mailer', cmd:'send', subject: payload.subject, 
+        body: payload.body}, function(err,result) {
         // process err and result appropriately
       });
     }
@@ -65,14 +66,17 @@ seneca.ready(function(err){
       // event in your local database. In a case like that then the only information you
       // need to send to the scheduler is the identity (unique key) of the record that
       // holds that information. Your workflow might look something like this:
-      // 1. Create a record that holds the data to allow execution of a process in the future.
-      // 2. Register a scheduler event and in the data payload send {id: record-key-from-above}
-      // 3. Receive response from scheduler that event has been scheduled and update the record
-      //    from 1 with the jobId
-      // 4. When you receive an event from the scheduler in the future use the id in the payload
-      //    to retrieve the record you stored in 1. and execute your internal code with that data.
-      // 5. (optional) If you need to update or cancel the scheduled job then use the jobId stored
-      //    in the record from 1 to do that.
+      // 1. Create a record that holds the data to allow execution of a process in the 
+      //    future.
+      // 2. Register a scheduler event and in the data payload send 
+      //    {id: record-key-from-above}
+      // 3. Receive response from scheduler that event has been scheduled and update the 
+      //    record from 1 with the jobId
+      // 4. When you receive an event from the scheduler in the future use the id in the 
+      //    payload to retrieve the record you stored in 1. and execute your internal 
+      //    code with that data.
+      // 5. (optional) If you need to update or cancel the scheduled job then use the 
+      //    jobId stored in the record from 1 to do that.
     }
   );
 
