@@ -40,20 +40,31 @@ seneca.ready(function(err){
     // This is the payload you sent to the scheduler when you originally
     // set-it-up with the 'register' cmd.
     var payload = args.data;
+    var name = args.name;
 
-    if(payload.action === 'send-email') {
+    if(name === 'send-email') {
       seneca.act({role:'mailer', cmd:'send', subject: payload.subject, 
-        body: payload.body}, function(err,result) {
+        body: payload.body, to: payload.to, 
+        // etc... or you could just say data: payload
+        }, function(err,result) {
         // process err and result appropriately
       });
     }
+    
+    // You can use this single micro-service to route all the jobs that
+    // get executed from the scheduler or you can handle a subset based
+    // on name or other data in the payload.
+    // If you handle a subset of tasks and have registered other 'listeners'
+    // with this.add() then don't forget to call seneca.prior() once you're
+    // done processing so that the other instances can process the payload.
   });
 
+  // Register an event (job) to fire at some point in the future...
   seneca.act({
     role:'scheduler',
     cmd:'register',
-    when: new Date(2014, 5, 1),
-    name: 'emailer', // any name you want
+    when: new Date(2016, 5, 1),
+    name: 'send-email', // any name you want
     data: {subject: 'test email', body: '<p>test body</p>'}
     }, function(err, data) {
       // If there is no error then data will have a property called jobId.
