@@ -1,6 +1,6 @@
 {
   "name": "seneca-quartz-scheduler",
-  "version": "0.0.1",
+  "version": "0.1.0",
   "description": "Senecea quartz-scheduler plugin",
   "main": "lib/scheduler.js",
   "scripts": {
@@ -28,9 +28,10 @@
     "moment": "^2.5.1"
   },
   "dependencies": {
+    "chai": "^1.9.1",
+    "debug": "2.0.0",
     "quartz-scheduler": "git://github.com/nherment/node-quartz-scheduler",
     "seneca": "^0.5.17",
-    "uuid": "^1.4.1",
-    "chai": "^1.9.1"
+    "uuid": "^1.4.1"
   }
 }
