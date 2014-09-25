@@ -1,6 +1,6 @@
 {
   "name": "seneca-quartz-scheduler",
-  "version": "0.1.0",
+  "version": "0.0.1",
   "description": "Senecea quartz-scheduler plugin",
   "main": "lib/scheduler.js",
   "scripts": {
@@ -18,6 +18,9 @@
     "cron"
   ],
   "author": "Seamus D'Arcy",
+  "contributors": [
+    {"name" : "Guy Ellis", "email" : "wildfiction@gmail.com", "url" : "http://www.guyellisrocks.com/"}
+  ],
   "license": "MIT",
   "bugs": {
     "url": "https://github.com/darsee/seneca-quartz-scheduler/issues"
@@ -25,13 +28,13 @@
   "homepage": "https://github.com/darsee/seneca-quartz-scheduler",
   "devDependencies": {
     "mocha": "^1.18.2",
-    "moment": "^2.5.1"
+    "chai": "^1.9.1",
+    "moment": "^2.5.1",
+    "uuid": "^1.4.1"
   },
   "dependencies": {
-    "chai": "^1.9.1",
     "debug": "2.0.0",
     "quartz-scheduler": "git://github.com/nherment/node-quartz-scheduler",
-    "seneca": "^0.5.17",
-    "uuid": "^1.4.1"
+    "seneca": "^0.5.17"
   }
 }
