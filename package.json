@@ -1,14 +1,14 @@
 {
   "name": "seneca-quartz-scheduler",
   "version": "0.0.1",
-  "description": "Senecea quartz-scheduler plugin",
+  "description": "Seneca quartz-scheduler plugin",
   "main": "lib/scheduler.js",
   "scripts": {
     "test": "node_modules/.bin/mocha -u qunit"
   },
   "repository": {
     "type": "git",
-    "url": "github.com/darsee/seneca-quartz-scheduler"
+    "url": "https://github.com/darsee/seneca-quartz-scheduler.git"
   },
   "keywords": [
     "seneca",
