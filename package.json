@@ -1,6 +1,6 @@
 {
   "name": "seneca-quartz-scheduler",
-  "version": "0.0.2",
+  "version": "0.0.3",
   "description": "Seneca quartz-scheduler plugin",
   "main": "lib/scheduler.js",
   "scripts": {

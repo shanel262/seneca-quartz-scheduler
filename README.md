@@ -9,7 +9,7 @@ Quartz does not expose HTTP services by itself - you'll need to build (maven) a 
 If you're using this module, feel free to contact us on twitter if you
 have any questions: [@wildfiction](https://twitter.com/wildfiction) or [@darsee](https://twitter.com/darsee)
 
-Current Version: 0.1.2
+Current Version: 0.0.3
 
 Tested on: node 0.10.31, seneca 0.5.19
 
