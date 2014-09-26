@@ -1,6 +1,6 @@
 {
   "name": "seneca-quartz-scheduler",
-  "version": "0.0.1",
+  "version": "0.0.2",
   "description": "Seneca quartz-scheduler plugin",
   "main": "lib/scheduler.js",
   "scripts": {
@@ -30,6 +30,8 @@
     "mocha": "^1.18.2",
     "chai": "^1.9.1",
     "moment": "^2.5.1",
+    "seneca-transport": "^0.2.6",
+    "seneca-web": "^0.2.1",
     "uuid": "^1.4.1"
   },
   "dependencies": {
