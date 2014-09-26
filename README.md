@@ -6,16 +6,16 @@ Quartz does not expose HTTP services by itself - you'll need to build (maven) a 
 
 ## Support
 
-If you're using this module, feel free to contact me on twitter if you
-have any questions! [@wildfiction](http://twitter.com/wildfiction)
+If you're using this module, feel free to contact us on twitter if you
+have any questions: [@wildfiction](https://twitter.com/wildfiction) or [@darsee](https://twitter.com/darsee)
 
-Current Version: 0.1.0
+Current Version: 0.1.2
 
 Tested on: node 0.10.31, seneca 0.5.19
 
 ## Visually
 
-![Scheduler Data Flow](https://raw.githubusercontent.com/guyellis/seneca-quartz-scheduler/master/docs/scheduler-data-flow.png "Scheduler Data Flow")
+![Scheduler Data Flow](https://raw.githubusercontent.com/darsee/seneca-quartz-scheduler/master/docs/scheduler-data-flow.png "Scheduler Data Flow")
 
 ## Quick examples
 
@@ -154,3 +154,5 @@ Run tests with:
 ```
 npm test
 ```
+
+You'll need a scheduler running for the tests to communicate with.
