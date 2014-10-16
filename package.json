@@ -4,7 +4,7 @@
   "description": "Seneca quartz-scheduler plugin",
   "main": "lib/scheduler.js",
   "scripts": {
-    "test": "node_modules/.bin/mocha -u qunit"
+    "test": "node_modules/.bin/mocha -u qunit --reporter spec"
   },
   "repository": {
     "type": "git",
@@ -34,6 +34,6 @@
     "seneca": "0.5.21"
   },
   "dependencies": {
-    "quartz-scheduler": "git://github.com/nherment/node-quartz-scheduler"
+    "quartz-scheduler": "0.1.3"
   }
 }

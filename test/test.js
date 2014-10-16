@@ -1,5 +1,6 @@
 var seneca = require('seneca')();
 var moment = require('moment');
+var assert = require('assert');
 var should = require('chai').should();
 var uuid = require('uuid');
 
@@ -24,11 +25,14 @@ describe('quartz events', function() {
     var registeredAt;
     var callbackCount = 0;
     var cmdId = uuid.v4();
+    var createdJobId;
     seneca.add({role:role, cmd:cmdId}, function(args, callback){
       var now = Date.now();
       now.should.be.above(registeredAt);
       args.data.one.should.equal('#1');
       args.data.two.should.equal('#2');
+      assert.ok(args.jobId)
+      assert.equal(args.jobId, createdJobId)
       callback();
       done();
     });
@@ -39,7 +43,7 @@ describe('quartz events', function() {
       when: moment().add(1, 'seconds').toDate(),
       args: { role: role, cmd: cmdId, data: {one:'#1',two: '#2'}}
     }, function (err, data) {
-
+      createdJobId = data.jobId;
       registeredAt = Date.now();
       should.not.exist(err);
     });
@@ -48,9 +52,6 @@ describe('quartz events', function() {
   var taskData;
 
   it('should register a task that will be deregistered later', function (done) {
-    var funcId = uuid.v4();
-
-
     var cmdId = uuid.v4();
     seneca.add({role: role, cmd: cmdId}, function(args, callback) {
       // This should never be called because we're going to deregister it before it
@@ -91,7 +92,6 @@ describe('quartz events', function() {
   });
 
   it('should register a task that will be updated in next test', function (done) {
-    var funcId = uuid.v4();
 
     var cmdId = uuid.v4();
     seneca.add({role: role, cmd: cmdId}, function(args, callback) {
@@ -106,7 +106,7 @@ describe('quartz events', function() {
         role: role,
         cmd: 'register',
         when: moment().add(10, 'minutes').toDate(),
-        args: {role: role, cmd: cmdId, data: {funcId: funcId, payload_number: '#1'}}
+        args: {role: role, cmd: cmdId, data: {payload_number: '#1'}}
       }, function (err,data) {
         should.not.exist(err);
         should.exist(data);
