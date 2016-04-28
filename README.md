@@ -1,27 +1,54 @@
+![Seneca](http://senecajs.org/files/assets/seneca-logo.png)
+
 # seneca-quartz-scheduler
+[![npm version][npm-badge]][npm-url]
+[![Build Status][travis-badge]][travis-url]
+[![Dependency Status][david-badge]][david-url]
+[![Gitter][gitter-badge]][gitter-url]
+
+## Description
 
 A scheduler plugin for the [Seneca](http://senecajs.org) toolkit that wraps [node-quartz-scheduler](https://github.com/nherment/node-quartz-scheduler).
 
 Quartz does not expose HTTP services by itself - you'll need to build (maven) a war file from [quartz-http](https://github.com/nherment/quartz-http).
 
-## Support
+#### Support
 
 If you're using this module, feel free to contact us on twitter if you
 have any questions: [@wildfiction](https://twitter.com/wildfiction) or [@darsee](https://twitter.com/darsee)
-
-Current Version: 0.1.0
-
-Tested on: node 0.10.31, seneca 0.5.21
 
 ## Visually
 
 ![Scheduler Data Flow](https://raw.githubusercontent.com/darsee/seneca-quartz-scheduler/master/docs/scheduler-data-flow.png "Scheduler Data Flow")
 
+### Seneca compatibility
+Supports Seneca versions **1.x** and **2.x**
+
+## Install
+
+```
+npm install seneca
+npm install seneca-quartz-scheduler
+```
+
+You'll need the [seneca](http://github.com/senecajs/seneca) module to use this module - it's just a plugin.
+
+
+## Usage
+
+To load the plugin:
+
+```
+seneca.use('quartz-scheduler', { ... options ... })
+```
+
+For available options, see [node-quartz-scheduler](https://github.com/nherment/node-quartz-scheduler).
+
 ## Quick examples
 
 Schedule a single future event:
 
-```
+```js
 var seneca = require('seneca')();
 
 seneca.use('quartz-scheduler');
@@ -64,27 +91,6 @@ seneca.ready(function(err){
 })
 ```
 
-## Install
-
-```
-npm install seneca
-npm install seneca-quartz-scheduler
-```
-
-You'll need the [seneca](http://github.com/rjrodger/seneca) module to use this module - it's just a plugin.
-
-
-## Usage
-
-To load the plugin:
-
-```
-seneca.use('quartz-scheduler', { ... options ... })
-```
-
-For available options, see [node-quartz-scheduler](https://github.com/nherment/node-quartz-scheduler).
-
-
 ## Actions
 
 All actions provide results via the standard callback format: <code>function(error,data){ ... }</code>.
@@ -113,8 +119,11 @@ This will print action logs and plugin logs for the user plugin. To skip the act
 node your-app.js --seneca.log=type:plugin,plugin:quartz-scheduler
 ```
 
-For more logging options, see the [Seneca logging tutorial](http://senecajs.org/logging-example.html).
+For more logging options, see the [Seneca logging tutorial](http://senecajs.org/tutorials/logging-with-seneca.html).
 
+## Contributing
+The [Senecajs org][] encourage open participation. If you feel you can help in any way, be it with
+documentation, examples, extra testing, or new features please get in touch.
 
 ## Test
 
@@ -125,3 +134,22 @@ npm test
 ```
 
 You'll need a scheduler running for the tests to communicate with.
+
+## License
+Copyright (c) 2014-2016, Seamus D'Arcy and other contributors.
+Licensed under [MIT][].
+
+[MIT]: ./LICENSE
+[npm-badge]: https://img.shields.io/npm/v/seneca-quartz-scheduler.svg
+[npm-url]: https://npmjs.com/package/seneca-quartz-scheduler
+[travis-badge]: https://travis-ci.org/senecajs/seneca-quartz-scheduler.svg
+[travis-url]: https://travis-ci.org/senecajs/seneca-quartz-scheduler
+[codeclimate-badge]: https://codeclimate.com/github/senecajs/seneca-quartz-scheduler/badges/gpa.svg
+[codeclimate-url]: https://codeclimate.com/github/senecajs/seneca-quartz-scheduler
+[coverage-badge]: https://coveralls.io/repos/senecajs/seneca-quartz-scheduler/badge.svg?branch=master&service=github
+[coverage-url]: https://coveralls.io/github/senecajs/seneca-quartz-scheduler?branch=master
+[david-badge]: https://david-dm.org/senecajs/seneca-quartz-scheduler.svg
+[david-url]: https://david-dm.org/senecajs/seneca-quartz-scheduler
+[gitter-badge]: https://badges.gitter.im/Join%20Chat.svg
+[gitter-url]: https://gitter.im/senecajs/seneca
+[Senecajs org]: https://github.com/senecajs/
