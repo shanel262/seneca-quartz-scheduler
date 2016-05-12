@@ -15,5 +15,5 @@ node_js:
 before_script:
   - npm install seneca$SENECA_VER
   
-after script:
+after_script:
   - nsp check
