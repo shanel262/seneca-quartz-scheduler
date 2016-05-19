@@ -4,6 +4,7 @@
 [![npm version][npm-badge]][npm-url]
 [![Build Status][travis-badge]][travis-url]
 [![Dependency Status][david-badge]][david-url]
+[![Coveralls][BadgeCoveralls]][Coveralls]
 [![Gitter][gitter-badge]][gitter-url]
 
 ## Description
@@ -146,8 +147,8 @@ Licensed under [MIT][].
 [travis-url]: https://travis-ci.org/senecajs/seneca-quartz-scheduler
 [codeclimate-badge]: https://codeclimate.com/github/senecajs/seneca-quartz-scheduler/badges/gpa.svg
 [codeclimate-url]: https://codeclimate.com/github/senecajs/seneca-quartz-scheduler
-[coverage-badge]: https://coveralls.io/repos/senecajs/seneca-quartz-scheduler/badge.svg?branch=master&service=github
-[coverage-url]: https://coveralls.io/github/senecajs/seneca-quartz-scheduler?branch=master
+[Coveralls]: https://coveralls.io/github/senecajs/seneca-quartz-scheduler?branch=master
+[BadgeCoveralls]: https://coveralls.io/repos/github/senecajs/seneca-quartz-scheduler/badge.svg?branch=master
 [david-badge]: https://david-dm.org/senecajs/seneca-quartz-scheduler.svg
 [david-url]: https://david-dm.org/senecajs/seneca-quartz-scheduler
 [gitter-badge]: https://badges.gitter.im/Join%20Chat.svg

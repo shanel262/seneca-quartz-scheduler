@@ -17,3 +17,4 @@ before_script:
   
 after_script:
   - nsp check
+  - npm run coverage
