@@ -134,7 +134,9 @@ Run tests with:
 npm test
 ```
 
-You'll need a scheduler running for the tests to communicate with.
+You'll need a scheduler and redis server running for the tests to communicate with.
+First clone [quartz-http](https://github.com/nherment/quartz-http) and run it using [Maven](https://maven.apache.org/). 
+Then start a [redis](http://redis.io/) server on port 6379. The tests can now be run using `npm run test`
 
 ## License
 Copyright (c) 2014-2016, Seamus D'Arcy and other contributors.

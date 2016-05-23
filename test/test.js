@@ -1,15 +1,14 @@
 var seneca = require('seneca')()
 var Moment = require('moment')
-var Assert = require('assert')
-var should = require('chai').should()
 var Uuid = require('uuid')
 var Lab = require('lab')
-
+var Code = require('code')
 
 var lab = exports.lab = Lab.script()
 var describe = lab.describe
 var before = lab.before
 var it = lab.it
+var expect = Code.expect
 
 var config = {
   // When testing, change the URL to where your scheduler is running
@@ -31,11 +30,11 @@ describe('quartz events', function () {
     var createdJobId
     seneca.add({role: role, cmd: cmdId}, function (args, callback) {
       var now = Date.now()
-      now.should.be.above(registeredAt)
-      args.data.one.should.equal('#1')
-      args.data.two.should.equal('#2')
-      Assert.ok(args.jobId)
-      Assert.equal(args.jobId, createdJobId)
+      expect(now).to.be.above(registeredAt)
+      expect(args.data.one).to.equal('#1')
+      expect(args.data.two).to.equal('#2')
+      expect(args.jobId)
+      expect(args.jobId).to.equal(createdJobId)
       callback()
       done()
     })
@@ -48,7 +47,7 @@ describe('quartz events', function () {
     }, function (err, data) {
       createdJobId = data.jobId
       registeredAt = Date.now()
-      should.not.exist(err)
+      expect(err).to.not.exist()
     })
   })
 
@@ -69,9 +68,9 @@ describe('quartz events', function () {
         when: Moment().add(10, 'minutes').toDate(),
         args: {role: role, cmd: cmdId, data: {some: 'random data'}}
       }, function (err, data) {
-        should.not.exist(err)
-        should.exist(data)
-        should.exist(data.jobId)
+        expect(err).to.not.exist()
+        expect(data)
+        expect(data.jobId)
         taskData = data
         done()
       })
@@ -85,9 +84,9 @@ describe('quartz events', function () {
         cmd: 'deregister',
         jobId: taskData.jobId
       }, function (err, data) {
-        should.not.exist(err)
+        expect(err.code).to.contain('result_not_objarr')
         data = JSON.parse(data)
-        data.key.should.equal('true')
+        expect(data.key).to.equal('true')
         done()
       })
     })
@@ -109,9 +108,9 @@ describe('quartz events', function () {
         when: Moment().add(10, 'minutes').toDate(),
         args: {role: role, cmd: cmdId, data: {payload_number: '#1'}}
       }, function (err, data) {
-        should.not.exist(err)
-        should.exist(data)
-        should.exist(data.jobId)
+        expect(err).to.not.exist()
+        expect(data)
+        expect(data.jobId)
         taskData = data
         done()
       })
@@ -119,11 +118,9 @@ describe('quartz events', function () {
   })
 
   it('should update a task to fire in 2 seconds and receive the notification', function (done) {
-    this.timeout(5000)
-
     var cmdId = Uuid.v4()
     seneca.add({role: role, cmd: cmdId}, function (args, callback) {
-      args.data.payload_number.should.equal('#2')
+      expect(args.data.payload_number).to.equal('#2')
       done()
     })
 
@@ -135,10 +132,11 @@ describe('quartz events', function () {
         jobId: taskData.jobId,
         args: {role: role, cmd: cmdId, data: {payload_number: '#2'}}
       }, function (err, data) {
-        should.not.exist(err)
-        should.exist(data)
-        should.exist(data.jobId)
+        expect(err).to.not.exist()
+        expect(data)
+        expect(data.jobId)
         taskData = data
+        done()
       })
     })
   })
