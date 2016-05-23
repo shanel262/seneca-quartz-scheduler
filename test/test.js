@@ -69,8 +69,8 @@ describe('quartz events', function () {
         args: {role: role, cmd: cmdId, data: {some: 'random data'}}
       }, function (err, data) {
         expect(err).to.not.exist()
-        expect(data)
-        expect(data.jobId)
+        expect(data).to.be.not.null()
+        expect(data.jobId).to.be.not.null()
         taskData = data
         done()
       })
@@ -86,6 +86,7 @@ describe('quartz events', function () {
       }, function (err, data) {
         expect(err.code).to.contain('result_not_objarr')
         data = JSON.parse(data)
+        expect(data).to.be.an.object()
         expect(data.key).to.equal('true')
         done()
       })
@@ -109,8 +110,8 @@ describe('quartz events', function () {
         args: {role: role, cmd: cmdId, data: {payload_number: '#1'}}
       }, function (err, data) {
         expect(err).to.not.exist()
-        expect(data)
-        expect(data.jobId)
+        expect(data).to.be.not.null()
+        expect(data.jobId).to.be.not.null()
         taskData = data
         done()
       })
@@ -133,8 +134,8 @@ describe('quartz events', function () {
         args: {role: role, cmd: cmdId, data: {payload_number: '#2'}}
       }, function (err, data) {
         expect(err).to.not.exist()
-        expect(data)
-        expect(data.jobId)
+        expect(data).to.be.not.null()
+        expect(data.jobId).to.be.not.null()
         taskData = data
         done()
       })
