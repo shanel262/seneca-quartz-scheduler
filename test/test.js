@@ -122,7 +122,6 @@ describe('quartz events', function () {
     var cmdId = Uuid.v4()
     seneca.add({role: role, cmd: cmdId}, function (args, callback) {
       expect(args.data.payload_number).to.equal('#2')
-      done()
     })
 
     seneca.ready(function () {
