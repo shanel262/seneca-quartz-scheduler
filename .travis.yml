@@ -20,7 +20,7 @@ before_script:
   - if [[ $TRAVIS_NODE_VERSION == "6" ]]; then export LAB_FLAGS="--leaks"; else export LAB_FLAGS=""; fi
   - npm uninstall seneca
   - npm install seneca$SENECA_VER
-  - git clone quartz-http
+  - git clone https://github.com/nherment/quartz-http
   - cd quartz-http
   - mvn jetty:run
   - echo FLAGS:$LAB_FLAGS
