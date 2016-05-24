@@ -15,9 +15,14 @@ node_js:
   - "6"
 
 before_script:
+  - sudo apt-get install default-jre
+  - sudo apt-get install maven
   - if [[ $TRAVIS_NODE_VERSION == "6" ]]; then export LAB_FLAGS="--leaks"; else export LAB_FLAGS=""; fi
   - npm uninstall seneca
   - npm install seneca$SENECA_VER
+  - npm install quartz-http
+  - cd quartz-http
+  - mvn jetty:run
   - echo FLAGS:$LAB_FLAGS
   
 after_script:
